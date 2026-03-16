@@ -399,7 +399,7 @@ export default function Home() {
               maxWidth: 300,
             }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/imagem6.jpeg" alt="Irmãs" style={{ width: '100%', height: 220, objectFit: 'cover', objectPosition: 'top' }} />
+              <img src="/imagem6.jpeg" alt="Irmãs" style={{ width: '100%', height: 220, objectFit: 'cover', objectPosition: 'center 30%' }} />
             </div>
           </div>
         </div>
