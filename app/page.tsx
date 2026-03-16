@@ -216,23 +216,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALERIA MASONRY */}
       <section className="w-full max-w-5xl mx-auto px-4 pb-20">
         <div className="flex items-center justify-center mb-10">
           <div className="h-px flex-1" style={{ backgroundColor: '#C9A66B44' }} />
           <div className="mx-6 text-center">
-            <h2 className="text-xl sm:text-2xl font-semibold" style={{ color: '#4A2E1F' }}>Nossa Comunidade</h2>
             <p className="text-xs tracking-wider mt-1" style={{ color: '#C9A66B' }}></p>
           </div>
           <div className="h-px flex-1" style={{ backgroundColor: '#C9A66B44' }} />
         </div>
 
-        {/* Masonry — 2 colunas mobile, 3 desktop */}
-        <div className="columns-2 md:columns-3 gap-3 md:gap-4">
-          {fotos.map((foto, i) => (
-            <MasonryItem key={i} foto={foto} />
-          ))}
-        </div>
+       
 
         <p className="text-center text-sm italic mt-10" style={{ color: '#C9A66B' }}>
           
