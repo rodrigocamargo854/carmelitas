@@ -4,11 +4,11 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const fotos = [
-  { src: '/image1.jpeg', alt: 'Irmãs em oração', tall: true },
-  { src: '/imagem5.jpeg', alt: 'Comunidade reunida', tall: false },
-  { src: '/imagem2.jpeg', alt: 'Crucifixo', tall: true },
-  { src: '/imagem6.jpeg', alt: 'Irmãs jovens', tall: false },
-  { src: '/imagem3.jpeg', alt: 'Adoração', tall: false },
+  { src: '/image1.jpeg', alt: '', tall: true },
+  { src: '/imagem5.jpeg', alt: '', tall: false },
+  { src: '/imagem2.jpeg', alt: '', tall: true },
+  { src: '/imagem6.jpeg', alt: '', tall: false },
+  { src: '/imagem3.jpeg', alt: '', tall: false },
 ]
 
 function MasonryItem({ foto }: { foto: { src: string; alt: string } }) {
@@ -222,7 +222,7 @@ export default function Home() {
           <div className="h-px flex-1" style={{ backgroundColor: '#C9A66B44' }} />
           <div className="mx-6 text-center">
             <h2 className="text-xl sm:text-2xl font-semibold" style={{ color: '#4A2E1F' }}>Nossa Comunidade</h2>
-            <p className="text-xs tracking-wider mt-1" style={{ color: '#C9A66B' }}>MULHERES COM PROPÓSITO</p>
+            <p className="text-xs tracking-wider mt-1" style={{ color: '#C9A66B' }}></p>
           </div>
           <div className="h-px flex-1" style={{ backgroundColor: '#C9A66B44' }} />
         </div>
