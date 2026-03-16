@@ -352,12 +352,12 @@ export default function Home() {
             padding: '20px 10px 40px',
           }}>
             {[
-              { src: '/image1.jpeg', rot: '-4deg', alt: 'Irmãs em oração' },
-              { src: '/imagem2.jpeg', rot: '3deg', alt: 'Crucifixo' },
-              { src: '/imagem3.jpeg', rot: '-2deg', alt: 'Adoração' },
-              { src: '/imagem4.jpeg', rot: '4deg', alt: 'Irmãs na capela' },
-              { src: '/imagem5.jpeg', rot: '-3deg', alt: 'Comunidade' },
-              { src: '/imagem6.jpeg', rot: '2deg', alt: 'Irmãs jovens' },
+              { src: '/image1.jpeg', rot: '-4deg', alt: '' },
+              { src: '/imagem2.jpeg', rot: '3deg', alt: '' },
+              { src: '/imagem3.jpeg', rot: '-2deg', alt: '' },
+              { src: '/imagem4.jpeg', rot: '4deg', alt: '' },
+              { src: '/imagem5.jpeg', rot: '-3deg', alt: '' },
+              { src: '/imagem6.jpeg', rot: '2deg', alt: '' },
             ].map((foto, i) => (
               <PolaroidItem key={i} src={foto.src} alt={foto.alt} rot={foto.rot} />
             ))}
