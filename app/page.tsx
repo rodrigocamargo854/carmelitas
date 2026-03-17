@@ -473,7 +473,33 @@ export default function Home() {
             © 2026 — Vocacional Feminino CMES
           </p>
         </footer>
-
+{/* WhatsApp fixo */}
+<a
+  href="https://wa.me/554799380438"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    position: 'fixed',
+    bottom: 24,
+    right: 24,
+    width: 56,
+    height: 56,
+    borderRadius: '50%',
+    backgroundColor: '#25D366',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+    zIndex: 999,
+  }}
+>
+  {/* eslint-disable-next-line @next/next/no-img-element */}
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+    alt="WhatsApp"
+    style={{ width: 32, height: 32 }}
+  />
+</a>
       </main>
     </>
   )
