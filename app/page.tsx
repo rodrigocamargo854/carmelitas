@@ -151,7 +151,7 @@ export default function Home() {
           <Image src="/banner.jpg" alt="Banner" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.25 }} priority />
           <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${C.marromEscuro}dd 0%, ${C.marrom}bb 100%)` }} />
 
-          <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 1100, margin: '0 auto', padding: '80px 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'center' }}>
+          <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 1100, margin: '0 auto', padding: 'clamp(40px, 8vw, 80px) 20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
 
             {/* Lado esquerdo */}
             <div>
@@ -236,14 +236,14 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S2 — Frase + texto + polaroid
         ══════════════════════════════════════════ */}
-        <section style={{ backgroundColor: C.creme, padding: '100px 24px' }}>
+        <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             {/* SUBSTITUIR pela frase de impacto da seção */}
             <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', textAlign: 'center', fontStyle: 'italic', marginBottom: 64, lineHeight: 1.5 }}>
               "SUBSTITUIR — frase de impacto sobre vocação e chamado de Deus"
             </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 64, alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center' }}>
               <div>
                 {/* SUBSTITUIR pelos 3 parágrafos de texto desta seção */}
                 {['SUBSTITUIR — primeiro parágrafo desta seção sobre vocação.', 'SUBSTITUIR — segundo parágrafo sobre o chamado e discernimento.', 'SUBSTITUIR — terceiro parágrafo sobre a missão das irmãs.'].map((txt, i) => (
@@ -263,7 +263,7 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S3 — Chamados (layout editorial)
         ══════════════════════════════════════════ */}
-        <section style={{ backgroundColor: C.cremeMedio, padding: '100px 24px' }}>
+        <section style={{ backgroundColor: C.cremeMedio, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
 
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
@@ -274,7 +274,7 @@ export default function Home() {
             </div>
 
             {/* Grid editorial com número romano + linha + texto */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2px' }}>
               {[
                 { num: 'I', text: 'Contemplar para evangelizar à luz do Espírito Santo' },
                 { num: 'II', text: 'Viver a íntima e misteriosa união com Deus na oração' },
@@ -319,10 +319,10 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S4 — Processo vocacional + linha do tempo
         ══════════════════════════════════════════ */}
-        <section style={{ backgroundColor: C.marrom, padding: '100px 24px' }}>
+        <section style={{ backgroundColor: C.marrom, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 64, alignItems: 'center', marginBottom: 80 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 80 }}>
               <div>
                 {/* SUBSTITUIR pelo título desta seção */}
                 <h2 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
@@ -347,44 +347,19 @@ export default function Home() {
             </h3>
 
             <div style={{ position: 'relative' }}>
-              {/* Linha central */}
-              <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: 2, backgroundColor: `${C.dourado}44`, transform: 'translateX(-50%)' }} className="hidden-mobile" />
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
                 {etapas.map((etapa, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 24, justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end' }}>
-
-                    {/* Item par — esquerda */}
-                    {i % 2 === 0 && (
-                      <>
-                        <div style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
-                          <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 6 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 18, marginBottom: 8 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
-                        </div>
-
-                        {/* Bolinha central */}
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
-                          {etapa.num}
-                        </div>
-                        <div style={{ flex: 1 }} />
-                      </>
-                    )}
-
-                    {/* Item ímpar — direita */}
-                    {i % 2 !== 0 && (
-                      <>
-                        <div style={{ flex: 1 }} />
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
-                          {etapa.num}
-                        </div>
-                        <div style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
-                          <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 6 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 18, marginBottom: 8 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
-                        </div>
-                      </>
-                    )}
+                  <div key={i} style={{
+                    display: 'flex', alignItems: 'flex-start', gap: 16,
+                  }}>
+                    <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro }}>
+                      {etapa.num}
+                    </div>
+                    <div style={{ flex: 1, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '16px 20px' }}>
+                      <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
+                      <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
+                      <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -395,7 +370,7 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S5 — Galeria polaroid
         ══════════════════════════════════════════ */}
-        <section style={{ backgroundColor: C.creme, padding: '100px 24px' }}>
+        <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', textAlign: 'center', fontStyle: 'italic', marginBottom: 8 }}>
               Nossa Comunidade
@@ -422,7 +397,7 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S6 — Frase com fundo + imagem
         ══════════════════════════════════════════ */}
-        <section style={{ position: 'relative', minHeight: 420, backgroundColor: C.marromEscuro, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '100px 24px' }}>
+        <section style={{ position: 'relative', minHeight: 420, backgroundColor: C.marromEscuro, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/imagem6.jpeg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.2 }} />
           <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: 680 }}>
@@ -439,8 +414,8 @@ export default function Home() {
         {/* ══════════════════════════════════════════
             S7 — Sobre as irmãs
         ══════════════════════════════════════════ */}
-        <section style={{ backgroundColor: '#d4c5b0', padding: '100px 24px' }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 64, alignItems: 'center' }}>
+        <section style={{ backgroundColor: '#d4c5b0', padding: 'clamp(48px, 8vw, 100px) 20px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center' }}>
             <div>
               {/* SUBSTITUIR pelo título desta seção */}
               <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
