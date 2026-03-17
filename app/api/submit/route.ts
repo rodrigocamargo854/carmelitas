@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
+    console.log('body recebido:', body)
+
   const { nome, idade, cidade, estado, sobre } = body
 
   if (!nome || !idade || !cidade || !estado || !sobre) {
@@ -15,11 +17,14 @@ export async function POST(req: NextRequest) {
   }
 
   const res = await fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome, idade, cidade, estado, sobre }),
-  })
+  method: 'POST',
+  redirect: 'follow',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ nome, idade, cidade, estado, sobre }),
+})
 
+console.log('Status:', res.status)
+console.log('Body:', await res.text())
   if (!res.ok) {
     return NextResponse.json({ error: 'Erro ao salvar na planilha.' }, { status: 500 })
   }
