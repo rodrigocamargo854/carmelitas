@@ -157,10 +157,20 @@ export default function Home() {
             <div>
               {/* Logo */}
               <div style={{ marginBottom: 24, display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{ width: 80, height: 80, border: `2px solid ${C.dourado}`, borderRadius: '50%', backgroundColor: C.marrom, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/logo.png" alt="Logo CMES" style={{ width: 72, height: 72, objectFit: 'contain' }} />
-                </div>
+                {/* Logo */}
+<div style={{ marginBottom: 24 }}>
+  {/* eslint-disable-next-line @next/next/no-img-element */}
+  <img
+    src="/retina.png"
+    alt="Carmelitas Mensageiras do Espírito Santo"
+    style={{
+      width: 'clamp(200px, 40vw, 360px)',
+      height: 'auto',
+      mixBlendMode: 'screen',
+      display: 'block',
+    }}
+  />
+</div>
                 <div>
                   <p style={{ color: C.dourado, fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', lineHeight: 1.6, fontFamily: "'Lato', sans-serif" }}>
                     Irmãs Carmelitas<br />Mensageiras do Espírito Santo
