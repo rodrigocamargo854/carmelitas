@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         option { background: ${C.marrom}; color: ${C.creme}; }
         .cta-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important; }
@@ -79,85 +79,85 @@ export default function Home() {
           <Image src="/banner.jpg" alt="Banner" fill style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.25 }} priority />
           <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${C.marromEscuro}dd 0%, ${C.marrom}bb 100%)` }} />
 
-          <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 1100, margin: '0 auto', padding: 'clamp(40px, 8vw, 80px) 20px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
+          <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: 1100, margin: '0 auto', padding: 'clamp(40px, 8vw, 80px) 20px' }}>
 
-            {/* Esquerda */}
-            <div>
-              <div style={{ marginBottom: 24 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-               <img
-  src="/logo-novo.png"
-  alt="Carmelitas Mensageiras do Espírito Santo"
-  style={{
-width: 'clamp(300px, 55vw, 520px)',
-    height: 'auto',
-    mixBlendMode: 'screen',
-    display: 'block',
-  }}
-/>
-              </div>
-
-              <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Lato', sans-serif" }}>
-                Vocacional Feminino
-              </p>
-              <h1 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16, fontStyle: 'italic' }}>
-                "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
-              </h1>
-              <div style={{ width: 48, height: 2, backgroundColor: C.dourado, marginBottom: 20 }} />
-              <p style={{ color: C.rose, fontSize: 16, lineHeight: 1.7 }}>
-                Deus tem um chamado único para cada pessoa. Será que Ele está chamando você?
-              </p>
-
-              <div style={{ marginTop: 40, display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 160, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-              </div>
+            {/* Logo acima, largura toda */}
+            <div style={{ marginBottom: 40, display: 'flex', justifyContent: 'center' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-novo.png"
+                alt="Carmelitas Mensageiras do Espírito Santo"
+                style={{ width: '100%', maxWidth: 700, height: 'auto', mixBlendMode: 'screen', display: 'block' }}
+              />
             </div>
 
-            {/* Direita — duas caixas CTA */}
-            <div>
-              <h2 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', marginBottom: 32, lineHeight: 1.4 }}>
-                Sinta-se chamada? Entre em contato conosco!
-              </h2>
+            {/* Grid duas colunas */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <a
-                  href="https://wa.me/554799380438"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cta-card"
-                  style={{ ...ctaCardStyle, backgroundColor: '#25D366', boxShadow: '0 8px 24px rgba(37,211,102,0.25)' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 36, height: 36 }} />
-                    <div style={{ textAlign: 'left' }}>
-                      <p style={{ color: 'white', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Entre em Contato</p>
-                      <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Lato', sans-serif", fontSize: 13 }}>Fale com as irmãs pelo WhatsApp</p>
-                    </div>
-                  </div>
-                </a>
+              {/* Esquerda */}
+              <div>
+                <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Lato', sans-serif" }}>
+                  Vocacional Feminino
+                </p>
+                <h1 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16, fontStyle: 'italic' }}>
+                  "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
+                </h1>
+                <div style={{ width: 48, height: 2, backgroundColor: C.dourado, marginBottom: 20 }} />
+                <p style={{ color: C.rose, fontSize: 16, lineHeight: 1.7 }}>
+                  Deus tem um chamado único para cada pessoa. Será que Ele está chamando você?
+                </p>
 
-                <a
-                  href="https://chat.whatsapp.com/C0UAbKQnc7DBcUnKcXkK2R?s=cl&p=a&mlu=4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cta-card"
-                  style={{ ...ctaCardStyle, backgroundColor: `${C.dourado}22`, border: `2px solid ${C.dourado}`, boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <span style={{ fontSize: 32 }}>🕊️</span>
-                    <div style={{ textAlign: 'left' }}>
-                      <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Live Vocacional</p>
-                      <p style={{ color: C.creme, fontFamily: "'Lato', sans-serif", fontSize: 13, opacity: 0.85 }}>Entre no Grupo</p>
-                    </div>
-                  </div>
-                </a>
+                <div style={{ marginTop: 40, display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 160, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                </div>
               </div>
 
-              <p style={{ color: `${C.dourado}88`, fontSize: 11, textAlign: 'center', marginTop: 20, fontStyle: 'italic', fontFamily: "'Lato', sans-serif" }}>
-                Suas informações são confidenciais e serão usadas apenas pelas irmãs.
-              </p>
+              {/* Direita — duas caixas CTA */}
+              <div>
+                <h2 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', marginBottom: 32, lineHeight: 1.4 }}>
+                  Sinta-se chamada? Entre em contato conosco!
+                </h2>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <a
+                    href="https://wa.me/554799380438"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-card"
+                    style={{ ...ctaCardStyle, backgroundColor: '#25D366', boxShadow: '0 8px 24px rgba(37,211,102,0.25)' }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 36, height: 36 }} />
+                      <div style={{ textAlign: 'left' }}>
+                        <p style={{ color: 'white', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Entre em Contato</p>
+                        <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Lato', sans-serif", fontSize: 13 }}>Fale com as irmãs pelo WhatsApp</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://chat.whatsapp.com/C0UAbKQnc7DBcUnKcXkK2R?s=cl&p=a&mlu=4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-card"
+                    style={{ ...ctaCardStyle, backgroundColor: `${C.dourado}22`, border: `2px solid ${C.dourado}`, boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <span style={{ fontSize: 32 }}>🕊️</span>
+                      <div style={{ textAlign: 'left' }}>
+                        <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Live Vocacional</p>
+                        <p style={{ color: C.creme, fontFamily: "'Lato', sans-serif", fontSize: 13, opacity: 0.85 }}>Entre no Grupo</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <p style={{ color: `${C.dourado}88`, fontSize: 11, textAlign: 'center', marginTop: 20, fontStyle: 'italic', fontFamily: "'Lato', sans-serif" }}>
+                  Suas informações são confidenciais e serão usadas apenas pelas irmãs.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -205,7 +205,6 @@ width: 'clamp(300px, 55vw, 520px)',
         {/* ══ S3 — O que é preciso ══ */}
         <section style={{ backgroundColor: C.cremeMedio, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
               <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', marginBottom: 12 }}>
                 O que é preciso para ser uma Carmelita Mensageira?
@@ -240,12 +239,8 @@ width: 'clamp(300px, 55vw, 520px)',
               <h3 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic', maxWidth: 500, textAlign: 'left' }}>
                 "A alegria, essa festa do coração possuído por Deus Amor, deve caracterizar a vida de uma Carmelita Mensageira"
               </h3>
-              <a
-                href="https://wa.me/554799380438"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ backgroundColor: C.dourado, color: C.marromEscuro, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase' as const, whiteSpace: 'nowrap' }}
-              >
+              <a href="https://wa.me/554799380438" target="_blank" rel="noopener noreferrer"
+                style={{ backgroundColor: C.dourado, color: C.marromEscuro, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase' as const, whiteSpace: 'nowrap' }}>
                 Quero saber mais
               </a>
             </div>
@@ -255,7 +250,6 @@ width: 'clamp(300px, 55vw, 520px)',
         {/* ══ S4 — Processo vocacional ══ */}
         <section style={{ backgroundColor: C.marrom, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 80 }}>
               <div>
                 <h2 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
@@ -382,32 +376,20 @@ width: 'clamp(300px, 55vw, 520px)',
               </div>
             </div>
 
-            {/* Duas caixas — Irmãs e Ramo Secular */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginTop: 8 }}>
               {[
                 { label: 'Para as Irmãs', href: 'https://wa.me/554799380438' },
                 { label: 'Para o Ramo Secular', href: 'https://wa.me/554799380438' },
               ].map((item, i) => (
-                <a
-                  key={i}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
                   style={{
-                    display: 'inline-block',
-                    padding: '14px 32px',
-                    borderRadius: 8,
+                    display: 'inline-block', padding: '14px 32px', borderRadius: 8,
                     border: `1px solid ${C.dourado}`,
                     backgroundColor: i === 0 ? C.marrom : 'transparent',
                     color: i === 0 ? C.dourado : C.marrom,
-                    fontFamily: "'Lato', sans-serif",
-                    fontWeight: 700,
-                    fontSize: 13,
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase' as const,
-                    textDecoration: 'none',
-                  }}
-                >
+                    fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13,
+                    letterSpacing: '0.15em', textTransform: 'uppercase' as const, textDecoration: 'none',
+                  }}>
                   {item.label}
                 </a>
               ))}
@@ -430,18 +412,8 @@ width: 'clamp(300px, 55vw, 520px)',
         </footer>
 
         {/* WhatsApp fixo */}
-        <a
-          href="https://wa.me/554799380438"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            position: 'fixed', bottom: 24, right: 24,
-            width: 56, height: 56, borderRadius: '50%',
-            backgroundColor: '#25D366',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.25)', zIndex: 999,
-          }}
-        >
+        <a href="https://wa.me/554799380438" target="_blank" rel="noopener noreferrer"
+          style={{ position: 'fixed', bottom: 24, right: 24, width: 56, height: 56, borderRadius: '50%', backgroundColor: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.25)', zIndex: 999 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 32, height: 32 }} />
         </a>
