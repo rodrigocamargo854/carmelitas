@@ -39,12 +39,14 @@ function PolaroidItem({ src, alt, rot }: { src: string; alt: string; rot: string
 
 export default function Home() {
   const etapas = [
-    { num: '01', titulo: 'Primeiro Contato'},
-    { num: '02', titulo: 'Acompanhamento'},
-    { num: '03', titulo: 'Discernimento'},
-    { num: '04', titulo: 'Postulância'},
-    { num: '05', titulo: 'Noviciado'},
-    { num: '06', titulo: 'Votos' },
+    { num: '01', titulo: 'Primeiros Contatos', desc: 'Primeiros contatos com o Instituto.' },
+    { num: '02', titulo: 'Discernimento', desc: 'Tempo de discernimento por parte das Irmãs.' },
+    { num: '03', titulo: 'Acompanhamento Vocacional', desc: 'Início do Acompanhamento Vocacional no Instituto — sempre em fevereiro. A jovem participa de retiros e é acompanhada pessoalmente por uma Irmã. Havendo afinidade com o carisma, pode ser convidada a uma experiência de 15 dias em uma de nossas comunidades.' },
+    { num: '04', titulo: 'Aspirantado', desc: 'Início do caminho formativo dentro do Instituto. Período de adaptação à vida de oração e comunitária, com duração de um ano, podendo ser prolongado.' },
+    { num: '05', titulo: 'Postulantado', desc: 'A jovem é inserida de modo mais profundo no cotidiano das Irmãs, realizando apostolado externo e experiências nas comunidades de missão. Duração de 18 meses.' },
+    { num: '06', titulo: 'Noviciado', desc: 'Começa com o Rito de Iniciação à Vida Religiosa, quando recebe o hábito do Instituto. O primeiro ano é de recolhimento e oração; ao concluí-lo, a noviça faz estágio nas comunidades de missão.' },
+    { num: '07', titulo: 'Juniorato', desc: 'Com a Profissão dos Votos Temporários, a irmã consagra sua vida a Cristo. Dedica-se à oração e ao apostolado, amadurecendo sua identidade de Carmelita Mensageira. Duração de 5 a 9 anos.' },
+    { num: '08', titulo: 'Profissão Perpétua', desc: 'Após longo caminho, a irmã faz sua opção definitiva de consagrar-se a Cristo em uma vida casta, pobre e obediente, segundo o carisma das CMES.' },
   ]
 
   const ctaCardStyle: React.CSSProperties = {
@@ -83,16 +85,16 @@ export default function Home() {
             <div>
               <div style={{ marginBottom: 24 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/retina.png"
-                  alt="Carmelitas Mensageiras do Espírito Santo"
-                  style={{
-                    width: 'clamp(200px, 40vw, 360px)',
-                    height: 'auto',
-                    mixBlendMode: 'screen',
-                    display: 'block',
-                  }}
-                />
+               <img
+  src="/logo-novo.png"
+  alt="Carmelitas Mensageiras do Espírito Santo"
+  style={{
+width: 'clamp(300px, 55vw, 520px)',
+    height: 'auto',
+    mixBlendMode: 'screen',
+    display: 'block',
+  }}
+/>
               </div>
 
               <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Lato', sans-serif" }}>
@@ -119,17 +121,12 @@ export default function Home() {
               </h2>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                {/* Card 1 — WhatsApp contato */}
                 <a
                   href="https://wa.me/554799380438"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-card"
-                  style={{
-                    ...ctaCardStyle,
-                    backgroundColor: '#25D366',
-                    boxShadow: '0 8px 24px rgba(37,211,102,0.25)',
-                  }}
+                  style={{ ...ctaCardStyle, backgroundColor: '#25D366', boxShadow: '0 8px 24px rgba(37,211,102,0.25)' }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -141,18 +138,12 @@ export default function Home() {
                   </div>
                 </a>
 
-                {/* Card 2 — Grupo Live Vocacional */}
                 <a
                   href="https://chat.whatsapp.com/C0UAbKQnc7DBcUnKcXkK2R?s=cl&p=a&mlu=4"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-card"
-                  style={{
-                    ...ctaCardStyle,
-                    backgroundColor: `${C.dourado}22`,
-                    border: `2px solid ${C.dourado}`,
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
-                  }}
+                  style={{ ...ctaCardStyle, backgroundColor: `${C.dourado}22`, border: `2px solid ${C.dourado}`, boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <span style={{ fontSize: 32 }}>🕊️</span>
@@ -171,17 +162,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ S2 — Quem Somos (texto + polaroid) ══ */}
+        {/* ══ S2 — Quem Somos ══ */}
         <section id="quem-somos" style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', textAlign: 'center', fontStyle: 'italic', marginBottom: 64, lineHeight: 1.5 }}>
-              "SUBSTITUIR — frase de impacto sobre vocação e chamado de Deus"
-            </h2>
+            <div style={{ textAlign: 'center', marginBottom: 56 }}>
+              <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Lato', sans-serif", marginBottom: 12 }}>Quem somos</p>
+              <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', fontStyle: 'italic', lineHeight: 1.5 }}>
+                Chamadas a contemplar para evangelizar,<br />à luz do Espírito Santo
+              </h2>
+              <div style={{ width: 48, height: 2, backgroundColor: C.dourado, margin: '24px auto 0' }} />
+            </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center' }}>
               <div>
-                {['SUBSTITUIR — primeiro parágrafo desta seção sobre vocação.', 'SUBSTITUIR — segundo parágrafo sobre o chamado e discernimento.', 'SUBSTITUIR — terceiro parágrafo sobre a missão das irmãs.'].map((txt, i) => (
-                  <p key={i} style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>{txt}</p>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>
+                  Chamadas a viver segundo o Espírito, em oração e ação apostólica, contemplar para evangelizar, à luz do Espírito Santo, afim de sermos contemplativas no meio do povo, em um mundo secularizado e pobre.
+                </p>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>
+                  Formadas na unção do Espírito Santo, para levar o Evangelho que salva, cura e liberta, nossa vocação é um dom, que nos convida à íntima e misteriosa união com Deus na imolação da vida, na oração contemplativa, no silêncio e na solidão, que nos abre para o louvor, a acolhida e a manifestação de seus dons e carismas.
+                </p>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 24 }}>
+                  Enraizado no carisma Teresiano, somos fruto da urgência e necessidade de evangelizar quem vive longe Dele e do exercício de sua fé batismal, imersas em seus sofrimentos e angústias.
+                </p>
+                <p style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 15, marginBottom: 8 }}>Três pilares sustentam nossa espiritualidade:</p>
+                {['Espiritualidade carmelitana', 'Adoração eucarística reparadora, feita cotidianamente', 'Espiritualidade carismática, no louvor e abertura a seus dons e carismas'].map((p, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 8 }}>
+                    <span style={{ color: C.dourado, fontWeight: 700, flexShrink: 0 }}>—</span>
+                    <p style={{ color: C.marromMedio, fontSize: 15, lineHeight: 1.7 }}>{p}</p>
+                  </div>
                 ))}
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -194,25 +202,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ S3 — Chamados ══ */}
+        {/* ══ S3 — O que é preciso ══ */}
         <section style={{ backgroundColor: C.cremeMedio, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
 
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
               <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', marginBottom: 12 }}>
-                Toda Carmelita Mensageira é chamada a:
+                O que é preciso para ser uma Carmelita Mensageira?
               </h2>
               <div style={{ width: 48, height: 2, backgroundColor: C.dourado, margin: '0 auto' }} />
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2px' }}>
               {[
-                { num: 'I', text: 'Contemplar para evangelizar à luz do Espírito Santo' },
-                { num: 'II', text: 'Viver a íntima e misteriosa união com Deus na oração' },
-                { num: 'III', text: 'Ser esposa de Cristo e mãe das almas' },
-                { num: 'IV', text: 'Imolar-se pela Igreja com alegria e disponibilidade' },
-                { num: 'V', text: 'Levar o amor de Deus às almas pelo testemunho de vida' },
-                { num: 'VI', text: 'Ser mensageira do Espírito Santo no mundo' },
+                { num: 'I', text: 'Desejo de entrega a Deus, sentindo-se chamada ao seguimento radical de Cristo.' },
+                { num: 'II', text: 'Amor ao Carmelo e aos santos Carmelitas, desejo de buscar a comunhão com Deus por meio da oração, do silêncio, da solidão e da imolação pela Igreja.' },
+                { num: 'III', text: 'Zelo Eucarístico, atração pela adoração reparadora cotidiana.' },
+                { num: 'IV', text: 'Abertura aos dons carismáticos, no louvor e na súplica contínua por um novo derramamento do Espírito Santo na Igreja.' },
+                { num: 'V', text: 'Capacidade para entregar-se a Deus na simplicidade cotidiana de uma pequena comunidade fraterna unida pela caridade.' },
+                { num: 'VI', text: 'Ardor apostólico, desejo de evangelizar, de modo especial os batizados que não vivem o seu batismo.' },
               ].map((item, i) => (
                 <div key={i} style={{
                   display: 'flex', alignItems: 'flex-start', gap: 20,
@@ -228,7 +236,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* CTA → WhatsApp */}
             <div style={{ marginTop: 64, backgroundColor: C.marrom, borderRadius: 16, padding: '32px 40px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
               <h3 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic', maxWidth: 500, textAlign: 'left' }}>
                 "A alegria, essa festa do coração possuído por Deus Amor, deve caracterizar a vida de uma Carmelita Mensageira"
@@ -245,18 +252,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ S4 — Processo vocacional + linha do tempo ══ */}
+        {/* ══ S4 — Processo vocacional ══ */}
         <section style={{ backgroundColor: C.marrom, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 80 }}>
               <div>
                 <h2 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
-                  SUBSTITUIR — título sobre o processo vocacional
+                  O caminho para se tornar Carmelita Mensageira
                 </h2>
-                {['SUBSTITUIR — parágrafo 1 sobre o processo.', 'SUBSTITUIR — parágrafo 2 sobre o acompanhamento.', 'SUBSTITUIR — parágrafo 3 sobre a jornada individual.'].map((txt, i) => (
-                  <p key={i} style={{ color: `${C.creme}cc`, lineHeight: 1.9, fontSize: 15, marginBottom: 14 }}>{txt}</p>
-                ))}
+                <p style={{ color: `${C.creme}cc`, lineHeight: 1.9, fontSize: 15, marginBottom: 14 }}>
+                  Cada vocação é única e acompanhada de perto pelas Irmãs. O processo é gradual, respeitando o tempo de cada pessoa e o ritmo do Espírito Santo.
+                </p>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ backgroundColor: 'white', padding: '10px 10px 40px', transform: 'rotate(-2deg)', boxShadow: '0 12px 40px rgba(0,0,0,0.4)', maxWidth: 300 }}>
@@ -289,7 +296,7 @@ export default function Home() {
                         <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
                           <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
                           <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.titulo}</p>
+                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
                         <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
                           {etapa.num}
@@ -305,7 +312,7 @@ export default function Home() {
                         <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
                           <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
                           <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.titulo}</p>
+                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
                       </>
                     )}
@@ -325,7 +332,6 @@ export default function Home() {
             <p style={{ color: C.dourado, textAlign: 'center', fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Lato', sans-serif", marginBottom: 56 }}>
               Fotos do cotidiano
             </p>
-
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
               {[
                 { src: '/image1.jpeg', rot: '-4deg', alt: 'Irmãs em oração' },
