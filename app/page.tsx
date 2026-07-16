@@ -246,21 +246,13 @@ export default function Home() {
         {/* ══ S4 — Processo vocacional ══ */}
         <section style={{ backgroundColor: C.marrom, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 80 }}>
-              <div>
-                <h2 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24 }}>
-                  O caminho para se tornar Carmelita Mensageira
-                </h2>
-                <p style={{ color: `${C.creme}cc`, lineHeight: 1.9, fontSize: 15, marginBottom: 14 }}>
-                  Cada vocação é única e acompanhada de perto pelas Irmãs. O processo é gradual, respeitando o tempo de cada pessoa e o ritmo do Espírito Santo.
-                </p>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ backgroundColor: 'white', padding: '10px 10px 40px', transform: 'rotate(-2deg)', boxShadow: '0 12px 40px rgba(0,0,0,0.4)', maxWidth: 300 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/imagem4.jpeg" alt="Irmãs" style={{ width: '100%', height: 220, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-                </div>
-              </div>
+            <div style={{ textAlign: 'center', marginBottom: 80, maxWidth: 700, margin: '0 auto 80px' }}>
+              <h2 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24 }}>
+                O caminho para se tornar Carmelita Mensageira
+              </h2>
+              <p style={{ color: `${C.creme}cc`, lineHeight: 1.9, fontSize: 15 }}>
+                Cada vocação é única e acompanhada de perto pelas Irmãs. O processo é gradual, respeitando o tempo de cada pessoa e o ritmo do Espírito Santo.
+              </p>
             </div>
 
             <h3 style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", textAlign: 'center', marginBottom: 56, fontSize: 12, letterSpacing: '0.25em', textTransform: 'uppercase' }}>
