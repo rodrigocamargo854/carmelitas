@@ -4,13 +4,13 @@ import { useState } from 'react'
 import Image from 'next/image'
 
 const C = {
-  marrom: '#4A2E1F',
-  rose: '#E39A7A',
-  dourado: '#C9A66B',
-  creme: '#F3E8DA',
-  marromEscuro: '#2e1a0e',
-  marromMedio: '#6b3e26',
-  cremeMedio: '#e8ddd0',
+  marrom: '#5a2904',
+  rose: '#d59d89',
+  dourado: '#d9ac6e',
+  creme: '#ffead0',
+  marromEscuro: '#2d1b0e',
+  marromMedio: '#5a2904',
+  cremeMedio: '#fef9f3',
 }
 
 function PolaroidItem({ src, alt, rot }: { src: string; alt: string; rot: string }) {
@@ -30,7 +30,7 @@ function PolaroidItem({ src, alt, rot }: { src: string; alt: string; rot: string
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} style={{ width: '100%', height: 180, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-      <p style={{ textAlign: 'center', marginTop: 10, fontSize: 11, color: '#9a7a65', fontStyle: 'italic', fontFamily: "'Lato', sans-serif" }}>
+      <p style={{ textAlign: 'center', marginTop: 10, fontSize: 11, color: '#9a7a65', fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
         {alt}
       </p>
     </div>
@@ -66,13 +66,13 @@ export default function Home() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;500;600;700&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         option { background: ${C.marrom}; color: ${C.creme}; }
         .cta-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important; }
       `}</style>
 
-      <main style={{ fontFamily: "'Lato', sans-serif", backgroundColor: C.creme }}>
+      <main style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: C.creme }}>
 
         {/* ══ S1 — HERO ══ */}
         <section id="inicio" style={{ position: 'relative', minHeight: '100vh', backgroundColor: C.marrom, display: 'flex', alignItems: 'center' }}>
@@ -96,10 +96,10 @@ export default function Home() {
 
               {/* Esquerda */}
               <div>
-                <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Lato', sans-serif" }}>
+                <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Poppins', sans-serif" }}>
                   Vocacional Feminino
                 </p>
-                <h1 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16, fontStyle: 'italic' }}>
+                <h1 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16 }}>
                   "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
                 </h1>
                 <div style={{ width: 48, height: 2, backgroundColor: C.dourado, marginBottom: 20 }} />
@@ -115,7 +115,7 @@ export default function Home() {
 
               {/* Direita — duas caixas CTA */}
               <div>
-                <h2 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', marginBottom: 32, lineHeight: 1.4 }}>
+                <h2 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', marginBottom: 32, lineHeight: 1.4 }}>
                   Sinta-se chamada? Entre em contato conosco!
                 </h2>
 
@@ -131,8 +131,8 @@ export default function Home() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 36, height: 36 }} />
                       <div style={{ textAlign: 'left' }}>
-                        <p style={{ color: 'white', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Entre em Contato</p>
-                        <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Lato', sans-serif", fontSize: 13 }}>Fale com as irmãs pelo WhatsApp</p>
+                        <p style={{ color: 'white', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Entre em Contato</p>
+                        <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Poppins', sans-serif", fontSize: 13 }}>Fale com as irmãs pelo WhatsApp</p>
                       </div>
                     </div>
                   </a>
@@ -147,14 +147,14 @@ export default function Home() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <span style={{ fontSize: 32 }}>🕊️</span>
                       <div style={{ textAlign: 'left' }}>
-                        <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Live Vocacional</p>
-                        <p style={{ color: C.creme, fontFamily: "'Lato', sans-serif", fontSize: 13, opacity: 0.85 }}>Entre no Grupo</p>
+                        <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Live Vocacional</p>
+                        <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 13, opacity: 0.85 }}>Entre no Grupo</p>
                       </div>
                     </div>
                   </a>
                 </div>
 
-                <p style={{ color: `${C.dourado}88`, fontSize: 11, textAlign: 'center', marginTop: 20, fontStyle: 'italic', fontFamily: "'Lato', sans-serif" }}>
+                <p style={{ color: `${C.dourado}88`, fontSize: 11, textAlign: 'center', marginTop: 20, fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
                   Suas informações são confidenciais e serão usadas apenas pelas irmãs.
                 </p>
               </div>
@@ -166,8 +166,8 @@ export default function Home() {
         <section id="quem-somos" style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 56 }}>
-              <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Lato', sans-serif", marginBottom: 12 }}>Quem somos</p>
-              <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', fontStyle: 'italic', lineHeight: 1.5 }}>
+              <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Poppins', sans-serif", marginBottom: 12 }}>Quem somos</p>
+              <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', lineHeight: 1.5 }}>
                 Chamadas a contemplar para evangelizar,<br />à luz do Espírito Santo
               </h2>
               <div style={{ width: 48, height: 2, backgroundColor: C.dourado, margin: '24px auto 0' }} />
@@ -179,12 +179,12 @@ export default function Home() {
                   Chamadas a viver segundo o Espírito, em oração e ação apostólica, contemplar para evangelizar, à luz do Espírito Santo, afim de sermos contemplativas no meio do povo, em um mundo secularizado e pobre.
                 </p>
                 <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>
-                  Formadas na unção do Espírito Santo, para levar o Evangelho que salva, cura e liberta, nossa vocação é um dom, que nos convida à íntima e misteriosa união com Deus na imolação da vida, na oração contemplativa, no silêncio e na solidão, que nos abre para o louvor, a acolhida e a manifestação de seus dons e carismas.
+                  Formadas na unção do Espírito Santo, para levar o Evangelho que salva, cura e liberta, nossa vocação é um dom, que nos convida à íntima e misteriosa união com Deus na imolação da vida, na oração contemplativa, no silêncio e na solidão, que nos abre para o louvor, a acolhida e a manifestação de seus dons e carismas. Abastecidas nesta fonte, Ele nos envia a evangelizar, onde e como for preciso.
                 </p>
                 <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 24 }}>
                   Enraizado no carisma Teresiano, somos fruto da urgência e necessidade de evangelizar quem vive longe Dele e do exercício de sua fé batismal, imersas em seus sofrimentos e angústias.
                 </p>
-                <p style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 15, marginBottom: 8 }}>Três pilares sustentam nossa espiritualidade:</p>
+                <p style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 15, marginBottom: 8 }}>Três pilares sustentam nossa espiritualidade:</p>
                 {['Espiritualidade carmelitana', 'Adoração eucarística reparadora, feita cotidianamente', 'Espiritualidade carismática, no louvor e abertura a seus dons e carismas'].map((p, i) => (
                   <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 8 }}>
                     <span style={{ color: C.dourado, fontWeight: 700, flexShrink: 0 }}>—</span>
@@ -206,7 +206,7 @@ export default function Home() {
         <section style={{ backgroundColor: C.cremeMedio, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
-              <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontStyle: 'italic', marginBottom: 12 }}>
+              <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.4rem, 3vw, 2rem)', marginBottom: 12 }}>
                 O que é preciso para ser uma Carmelita Mensageira?
               </h2>
               <div style={{ width: 48, height: 2, backgroundColor: C.dourado, margin: '0 auto' }} />
@@ -227,7 +227,7 @@ export default function Home() {
                   borderLeft: `3px solid ${i % 2 === 0 ? C.dourado : C.rose}`,
                   backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.3)',
                 }}>
-                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 700, color: i % 2 === 0 ? C.dourado : C.rose, lineHeight: 1, flexShrink: 0, minWidth: 36 }}>
+                  <span style={{ fontFamily: "'Parisienne', cursive", fontSize: 28, fontWeight: 700, color: i % 2 === 0 ? C.dourado : C.rose, lineHeight: 1, flexShrink: 0, minWidth: 36 }}>
                     {item.num}
                   </span>
                   <p style={{ color: C.marromMedio, fontSize: 15, lineHeight: 1.7, paddingTop: 4 }}>{item.text}</p>
@@ -236,11 +236,11 @@ export default function Home() {
             </div>
 
             <div style={{ marginTop: 64, backgroundColor: C.marrom, borderRadius: 16, padding: '32px 40px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
-              <h3 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic', maxWidth: 500, textAlign: 'left' }}>
+              <h3 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1rem, 2vw, 1.3rem)', maxWidth: 500, textAlign: 'left' }}>
                 "A alegria, essa festa do coração possuído por Deus Amor, deve caracterizar a vida de uma Carmelita Mensageira"
               </h3>
               <a href="https://wa.me/554799380438" target="_blank" rel="noopener noreferrer"
-                style={{ backgroundColor: C.dourado, color: C.marromEscuro, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase' as const, whiteSpace: 'nowrap' }}>
+                style={{ backgroundColor: C.dourado, color: C.marromEscuro, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase' as const, whiteSpace: 'nowrap' }}>
                 Quero saber mais
               </a>
             </div>
@@ -252,7 +252,7 @@ export default function Home() {
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 80 }}>
               <div>
-                <h2 style={{ color: C.dourado, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
+                <h2 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24 }}>
                   O caminho para se tornar Carmelita Mensageira
                 </h2>
                 <p style={{ color: `${C.creme}cc`, lineHeight: 1.9, fontSize: 15, marginBottom: 14 }}>
@@ -267,7 +267,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h3 style={{ color: C.creme, fontFamily: "'Lato', sans-serif", textAlign: 'center', marginBottom: 56, fontSize: 12, letterSpacing: '0.25em', textTransform: 'uppercase' }}>
+            <h3 style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", textAlign: 'center', marginBottom: 56, fontSize: 12, letterSpacing: '0.25em', textTransform: 'uppercase' }}>
               Etapas do processo vocacional
             </h3>
 
@@ -288,11 +288,11 @@ export default function Home() {
                     {i % 2 === 0 ? (
                       <>
                         <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
-                          <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
+                          <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
+                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
                           <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
+                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
                           {etapa.num}
                         </div>
                         <div className="timeline-spacer" style={{ flex: 1 }} />
@@ -300,12 +300,12 @@ export default function Home() {
                     ) : (
                       <>
                         <div className="timeline-spacer" style={{ flex: 1 }} />
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
+                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
                           {etapa.num}
                         </div>
                         <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
-                          <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
+                          <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
+                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
                           <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
                       </>
@@ -320,10 +320,10 @@ export default function Home() {
         {/* ══ S5 — Galeria polaroid ══ */}
         <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', textAlign: 'center', fontStyle: 'italic', marginBottom: 8 }}>
+            <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', textAlign: 'center', marginBottom: 8 }}>
               Nossa Comunidade
             </h2>
-            <p style={{ color: C.dourado, textAlign: 'center', fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Lato', sans-serif", marginBottom: 56 }}>
+            <p style={{ color: C.dourado, textAlign: 'center', fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Poppins', sans-serif", marginBottom: 56 }}>
               Fotos do cotidiano
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
@@ -347,10 +347,10 @@ export default function Home() {
           <img src="/imagem6.jpeg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.2 }} />
           <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: 680 }}>
             <div style={{ width: 32, height: 2, backgroundColor: C.dourado, margin: '0 auto 24px' }} />
-            <h2 style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', fontStyle: 'italic', lineHeight: 1.6, marginBottom: 16 }}>
+            <h2 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', lineHeight: 1.6, marginBottom: 16 }}>
               "Sinto que minha missão está prestes a começar: ajudar as almas a amar a Deus."
             </h2>
-            <p style={{ color: C.dourado, fontFamily: "'Lato', sans-serif", fontSize: 13, letterSpacing: '0.15em' }}>
+            <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontSize: 13, letterSpacing: '0.15em' }}>
               Santa Teresinha do Menino Jesus
             </p>
           </div>
@@ -361,7 +361,7 @@ export default function Home() {
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 56 }}>
               <div>
-                <h2 style={{ color: C.marrom, fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24, fontStyle: 'italic' }}>
+                <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24 }}>
                   SUBSTITUIR — título sobre as irmãs
                 </h2>
                 <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 15 }}>
@@ -387,7 +387,7 @@ export default function Home() {
                     border: `1px solid ${C.dourado}`,
                     backgroundColor: i === 0 ? C.marrom : 'transparent',
                     color: i === 0 ? C.dourado : C.marrom,
-                    fontFamily: "'Lato', sans-serif", fontWeight: 700, fontSize: 13,
+                    fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13,
                     letterSpacing: '0.15em', textTransform: 'uppercase' as const, textDecoration: 'none',
                   }}>
                   {item.label}
@@ -400,13 +400,13 @@ export default function Home() {
         {/* FOOTER */}
         <footer style={{ backgroundColor: C.marromEscuro, padding: '48px 24px', textAlign: 'center' }}>
           <div style={{ width: 32, height: 2, backgroundColor: C.dourado, margin: '0 auto 20px' }} />
-          <p style={{ color: C.creme, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 16, marginBottom: 6 }}>
+          <p style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 16, marginBottom: 6 }}>
             Irmãs Carmelitas Mensageiras do Espírito Santo
           </p>
-          <p style={{ color: `${C.dourado}99`, fontFamily: "'Lato', sans-serif", fontSize: 12, marginBottom: 24 }}>
+          <p style={{ color: `${C.dourado}99`, fontFamily: "'Poppins', sans-serif", fontSize: 12, marginBottom: 24 }}>
             rsvocacional.cmes@gmail.com
           </p>
-          <p style={{ color: `${C.dourado}44`, fontFamily: "'Lato', sans-serif", fontSize: 11 }}>
+          <p style={{ color: `${C.dourado}44`, fontFamily: "'Poppins', sans-serif", fontSize: 11 }}>
             © 2026 — Vocacional Feminino CMES
           </p>
         </footer>
