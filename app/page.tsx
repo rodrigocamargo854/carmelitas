@@ -96,16 +96,12 @@ export default function Home() {
 
               {/* Esquerda */}
               <div>
-                <p style={{ color: C.dourado, fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 12, fontFamily: "'Poppins', sans-serif" }}>
-                  Vocacional Feminino
-                </p>
+               
                 <h1 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16 }}>
                   "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
                 </h1>
                 <div style={{ width: 48, height: 2, backgroundColor: C.dourado, marginBottom: 20 }} />
-                <p style={{ color: C.rose, fontSize: 16, lineHeight: 1.7 }}>
-                  Deus tem um chamado único para cada pessoa. Será que Ele está chamando você?
-                </p>
+                
 
                 <div style={{ marginTop: 40, display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
