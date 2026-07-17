@@ -104,9 +104,9 @@ export default function Home() {
 
               {/* Esquerda */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
+                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 340 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 160, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 240, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
               </div>
 
@@ -305,12 +305,6 @@ export default function Home() {
         {/* ══ S5 — Galeria polaroid ══ */}
         <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', textAlign: 'center', marginBottom: 8 }}>
-              Nossa Comunidade
-            </h2>
-            <p style={{ color: C.dourado, textAlign: 'center', fontSize: 11, letterSpacing: '0.25em', textTransform: 'uppercase', fontFamily: "'Poppins', sans-serif", marginBottom: 56 }}>
-              Fotos do cotidiano
-            </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
               {[
                 { src: '/image1.jpeg', rot: '-4deg', alt: 'Irmãs em oração' },
@@ -342,45 +336,7 @@ export default function Home() {
         </section>
 
         {/* ══ S7 — Sobre as irmãs + duas caixas ══ */}
-        <section style={{ backgroundColor: '#d4c5b0', padding: 'clamp(48px, 8vw, 100px) 20px' }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center', marginBottom: 56 }}>
-              <div>
-                <h2 style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.3rem, 3vw, 2rem)', marginBottom: 24 }}>
-                  SUBSTITUIR — título sobre as irmãs
-                </h2>
-                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 15 }}>
-                  SUBSTITUIR — texto sobre a história, missão e carisma das Irmãs Carmelitas Mensageiras do Espírito Santo.
-                </p>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ backgroundColor: 'white', padding: '10px 10px 40px', transform: 'rotate(1.5deg)', boxShadow: '0 12px 40px rgba(74,46,31,0.2)', maxWidth: 300 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/imagem6.jpeg" alt="Irmãs" style={{ width: '100%', height: 220, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center', marginTop: 8 }}>
-              {[
-                { label: 'Para as Irmãs', href: 'https://wa.me/554799380438' },
-                { label: 'Para o Ramo Secular', href: 'https://wa.me/554799380438' },
-              ].map((item, i) => (
-                <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-block', padding: '14px 32px', borderRadius: 8,
-                    border: `1px solid ${C.dourado}`,
-                    backgroundColor: i === 0 ? C.marrom : 'transparent',
-                    color: i === 0 ? C.dourado : C.marrom,
-                    fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13,
-                    letterSpacing: '0.15em', textTransform: 'uppercase' as const, textDecoration: 'none',
-                  }}>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+       
 
         {/* FOOTER */}
         <footer style={{ backgroundColor: C.marromEscuro, padding: '48px 24px', textAlign: 'center' }}>
