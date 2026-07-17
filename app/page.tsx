@@ -138,9 +138,9 @@ export default function Home() {
 
               {/* Esquerda */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 460 }}>
+                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 'clamp(220px, 60vw, 460px)', width: '100%' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 340, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 'clamp(160px, 45vw, 340px)', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
               </div>
 
@@ -158,8 +158,8 @@ export default function Home() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 36, height: 36 }} />
                       <div style={{ textAlign: 'left' }}>
-                        <p style={{ color: 'white', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Entre em Contato</p>
-                        <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Poppins', sans-serif", fontSize: 13 }}>Fale com as irmãs pelo WhatsApp</p>
+                        <p style={{ color: 'white', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Entre em Contato</p>
+                        <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)' }}>Fale com as irmãs pelo WhatsApp</p>
                       </div>
                     </div>
                   </a>
@@ -174,8 +174,8 @@ export default function Home() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <span style={{ fontSize: 32 }}>🕊️</span>
                       <div style={{ textAlign: 'left' }}>
-                        <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 16, letterSpacing: '0.05em' }}>Live Vocacional</p>
-                        <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 13, opacity: 0.85 }}>Entre no Grupo</p>
+                        <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Live Vocacional</p>
+                        <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)', opacity: 0.85 }}>Entre no Grupo</p>
                       </div>
                     </div>
                   </a>
@@ -203,27 +203,27 @@ export default function Home() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(24px, 5vw, 64px)', alignItems: 'center' }}>
               <div>
-                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 'clamp(14px, 3.5vw, 16px)', marginBottom: 16 }}>
                   Chamadas a viver segundo o Espírito, em oração e ação apostólica, contemplar para evangelizar, à luz do Espírito Santo, afim de sermos contemplativas no meio do povo, em um mundo secularizado e pobre.
                 </p>
-                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 16 }}>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 'clamp(14px, 3.5vw, 16px)', marginBottom: 16 }}>
                   Formadas na unção do Espírito Santo, para levar o Evangelho que salva, cura e liberta, nossa vocação é um dom, que nos convida à íntima e misteriosa união com Deus na imolação da vida, na oração contemplativa, no silêncio e na solidão, que nos abre para o louvor, a acolhida e a manifestação de seus dons e carismas. Abastecidas nesta fonte, Ele nos envia a evangelizar, onde e como for preciso.
                 </p>
-                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 16, marginBottom: 24 }}>
+                <p style={{ color: C.marromMedio, lineHeight: 1.9, fontSize: 'clamp(14px, 3.5vw, 16px)', marginBottom: 24 }}>
                   Enraizado no carisma Teresiano, somos fruto da urgência e necessidade de evangelizar quem vive longe Dele e do exercício de sua fé batismal, imersas em seus sofrimentos e angústias.
                 </p>
                 <p style={{ color: C.marrom, fontFamily: "'Parisienne', cursive", fontSize: 15, marginBottom: 8 }}>Três pilares sustentam nossa espiritualidade:</p>
                 {['Espiritualidade carmelitana', 'Adoração eucarística reparadora, feita cotidianamente', 'Espiritualidade carismática, no louvor e abertura a seus dons e carismas'].map((p, i) => (
                   <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 8 }}>
                     <span style={{ color: C.dourado, fontWeight: 700, flexShrink: 0 }}>—</span>
-                    <p style={{ color: C.marromMedio, fontSize: 15, lineHeight: 1.7 }}>{p}</p>
+                    <p style={{ color: C.marromMedio, fontSize: 'clamp(13px, 3.2vw, 15px)', lineHeight: 1.7 }}>{p}</p>
                   </div>
                 ))}
               </div>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ backgroundColor: 'white', padding: '10px 10px 40px', transform: 'rotate(2deg)', boxShadow: '0 12px 40px rgba(74,46,31,0.2)', maxWidth: 320 }}>
+                <div style={{ backgroundColor: 'white', padding: '10px 10px 40px', transform: 'rotate(2deg)', boxShadow: '0 12px 40px rgba(74,46,31,0.2)', maxWidth: 'clamp(220px, 70vw, 320px)', width: '100%' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/imagem5.jpeg" alt="Comunidade" style={{ width: '100%', height: 240, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                  <img src="/imagem5.jpeg" alt="Comunidade" style={{ width: '100%', height: 'clamp(160px, 45vw, 240px)', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
               </div>
             </div>
@@ -252,20 +252,20 @@ export default function Home() {
                 { text: 'Ardor apostólico, desejo de evangelizar, de modo especial os batizados que não vivem o seu batismo.' },
               ].map((item, i) => (
                 <div key={i} style={{
-                  display: 'flex', alignItems: 'flex-start', gap: 20,
-                  padding: '28px 24px',
+                  display: 'flex', alignItems: 'flex-start', gap: 'clamp(12px, 4vw, 20px)',
+                  padding: 'clamp(20px, 5vw, 28px) clamp(16px, 4vw, 24px)',
                   borderLeft: `3px solid ${i % 2 === 0 ? C.dourado : C.rose}`,
                   backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.3)',
                 }}>
-                  <span style={{ fontSize: 22, lineHeight: 1, flexShrink: 0, minWidth: 36, color: i % 2 === 0 ? C.dourado : C.rose }}>
+                  <span style={{ fontSize: 20, lineHeight: 1, flexShrink: 0, minWidth: 28, color: i % 2 === 0 ? C.dourado : C.rose }}>
                     ✝
                   </span>
-                  <p style={{ color: C.marromMedio, fontSize: 15, lineHeight: 1.7, paddingTop: 4 }}>{item.text}</p>
+                  <p style={{ color: C.marromMedio, fontSize: 'clamp(13px, 3.2vw, 15px)', lineHeight: 1.7, paddingTop: 4 }}>{item.text}</p>
                 </div>
               ))}
             </div>
 
-            <div style={{ marginTop: 64, backgroundColor: C.marrom, borderRadius: 16, padding: '32px 40px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
+            <div style={{ marginTop: 64, backgroundColor: C.marrom, borderRadius: 16, padding: 'clamp(24px, 5vw, 32px) clamp(20px, 5vw, 40px)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
               <h3 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1rem, 2vw, 1.3rem)', maxWidth: 500, textAlign: 'left' }}>
                 "A alegria, essa festa do coração possuído por Deus Amor, deve caracterizar a vida de uma Carmelita Mensageira"
               </h3>
@@ -311,12 +311,12 @@ export default function Home() {
                   <div key={i} className="timeline-row" style={{ display: 'flex', alignItems: 'flex-start', gap: 20, justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end' }}>
                     {i % 2 === 0 ? (
                       <>
-                        <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
+                        <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: 'clamp(14px, 4vw, 20px) clamp(16px, 4vw, 24px)' }}>
                           <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
+                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(15px, 4vw, 17px)', marginBottom: 6 }}>{etapa.titulo}</h4>
+                          <p style={{ color: `${C.creme}99`, fontSize: 'clamp(12.5px, 3.2vw, 14px)', lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
+                        <div style={{ width: 'clamp(32px, 8vw, 44px)', height: 'clamp(32px, 8vw, 44px)', borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(11px, 2.5vw, 13px)', color: C.marromEscuro, zIndex: 1 }}>
                           {etapa.num}
                         </div>
                         <div className="timeline-spacer" style={{ flex: 1 }} />
@@ -324,13 +324,13 @@ export default function Home() {
                     ) : (
                       <>
                         <div className="timeline-spacer" style={{ flex: 1 }} />
-                        <div style={{ width: 44, height: 44, borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, color: C.marromEscuro, zIndex: 1 }}>
+                        <div style={{ width: 'clamp(32px, 8vw, 44px)', height: 'clamp(32px, 8vw, 44px)', borderRadius: '50%', backgroundColor: C.dourado, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(11px, 2.5vw, 13px)', color: C.marromEscuro, zIndex: 1 }}>
                           {etapa.num}
                         </div>
-                        <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: '20px 24px' }}>
+                        <div className="timeline-card" style={{ flex: 1, maxWidth: 420, backgroundColor: `${C.creme}11`, border: `1px solid ${C.dourado}33`, borderRadius: 12, padding: 'clamp(14px, 4vw, 20px) clamp(16px, 4vw, 24px)' }}>
                           <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 4 }}>Etapa {etapa.num}</p>
-                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 17, marginBottom: 6 }}>{etapa.titulo}</h4>
-                          <p style={{ color: `${C.creme}99`, fontSize: 14, lineHeight: 1.7 }}>{etapa.desc}</p>
+                          <h4 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(15px, 4vw, 17px)', marginBottom: 6 }}>{etapa.titulo}</h4>
+                          <p style={{ color: `${C.creme}99`, fontSize: 'clamp(12.5px, 3.2vw, 14px)', lineHeight: 1.7 }}>{etapa.desc}</p>
                         </div>
                       </>
                     )}
@@ -420,7 +420,7 @@ export default function Home() {
 
         {/* WhatsApp fixo */}
         <a href="https://wa.me/554799380438" target="_blank" rel="noopener noreferrer"
-          style={{ position: 'fixed', bottom: 24, right: 24, width: 56, height: 56, borderRadius: '50%', backgroundColor: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.25)', zIndex: 999 }}>
+          style={{ position: 'fixed', bottom: 'clamp(16px, 4vw, 24px)', right: 'clamp(16px, 4vw, 24px)', width: 'clamp(48px, 12vw, 56px)', height: 'clamp(48px, 12vw, 56px)', borderRadius: '50%', backgroundColor: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.25)', zIndex: 999 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 32, height: 32 }} />
         </a>
