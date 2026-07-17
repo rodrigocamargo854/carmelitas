@@ -138,9 +138,9 @@ export default function Home() {
 
               {/* Esquerda */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 340 }}>
+                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 460 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 240, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                  <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 340, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
               </div>
 
