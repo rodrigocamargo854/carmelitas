@@ -87,23 +87,24 @@ export default function Home() {
               <img
                 src="/logo-novo.png"
                 alt="Carmelitas Mensageiras do Espírito Santo"
-                style={{ width: '100%', maxWidth: 700, height: 'auto', mixBlendMode: 'screen', display: 'block' }}
+                style={{ width: '100%', maxWidth: 900, height: 'auto', mixBlendMode: 'screen', display: 'block' }}
               />
+            </div>
+
+            {/* Citação centralizada, largura toda */}
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <h1 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16 }}>
+                "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
+              </h1>
+              <div style={{ width: 48, height: 2, backgroundColor: C.dourado, margin: '0 auto' }} />
             </div>
 
             {/* Grid duas colunas */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
 
               {/* Esquerda */}
-              <div>
-               
-                <h1 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.8rem, 4vw, 3rem)', lineHeight: 1.2, marginBottom: 16 }}>
-                  "Responder ao chamado de Deus é uma aventura, mas vale a pena correr o risco"
-                </h1>
-                <div style={{ width: 48, height: 2, backgroundColor: C.dourado, marginBottom: 20 }} />
-                
-
-                <div style={{ marginTop: 40, display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '8px 8px 28px', transform: 'rotate(-3deg)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)', maxWidth: 240 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/image1.jpeg" alt="Irmãs" style={{ width: '100%', height: 160, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                 </div>
@@ -111,10 +112,6 @@ export default function Home() {
 
               {/* Direita — duas caixas CTA */}
               <div>
-                <h2 style={{ color: C.creme, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)', marginBottom: 32, lineHeight: 1.4 }}>
-                  Sinta-se chamada? Entre em contato conosco!
-                </h2>
-
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <a
                     href="https://wa.me/554799380438"
@@ -210,12 +207,12 @@ export default function Home() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2px' }}>
               {[
-                { num: 'I', text: 'Desejo de entrega a Deus, sentindo-se chamada ao seguimento radical de Cristo.' },
-                { num: 'II', text: 'Amor ao Carmelo e aos santos Carmelitas, desejo de buscar a comunhão com Deus por meio da oração, do silêncio, da solidão e da imolação pela Igreja.' },
-                { num: 'III', text: 'Zelo Eucarístico, atração pela adoração reparadora cotidiana.' },
-                { num: 'IV', text: 'Abertura aos dons carismáticos, no louvor e na súplica contínua por um novo derramamento do Espírito Santo na Igreja.' },
-                { num: 'V', text: 'Capacidade para entregar-se a Deus na simplicidade cotidiana de uma pequena comunidade fraterna unida pela caridade.' },
-                { num: 'VI', text: 'Ardor apostólico, desejo de evangelizar, de modo especial os batizados que não vivem o seu batismo.' },
+                { text: 'Desejo de entrega a Deus, sentindo-se chamada ao seguimento radical de Cristo.' },
+                { text: 'Amor ao Carmelo e aos santos Carmelitas, desejo de buscar a comunhão com Deus por meio da oração, do silêncio, da solidão e da imolação pela Igreja.' },
+                { text: 'Zelo Eucarístico, atração pela adoração reparadora cotidiana.' },
+                { text: 'Abertura aos dons carismáticos, no louvor e na súplica contínua por um novo derramamento do Espírito Santo na Igreja.' },
+                { text: 'Capacidade para entregar-se a Deus na simplicidade cotidiana de uma pequena comunidade fraterna unida pela caridade.' },
+                { text: 'Ardor apostólico, desejo de evangelizar, de modo especial os batizados que não vivem o seu batismo.' },
               ].map((item, i) => (
                 <div key={i} style={{
                   display: 'flex', alignItems: 'flex-start', gap: 20,
@@ -223,8 +220,8 @@ export default function Home() {
                   borderLeft: `3px solid ${i % 2 === 0 ? C.dourado : C.rose}`,
                   backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.3)',
                 }}>
-                  <span style={{ fontFamily: "'Parisienne', cursive", fontSize: 28, fontWeight: 700, color: i % 2 === 0 ? C.dourado : C.rose, lineHeight: 1, flexShrink: 0, minWidth: 36 }}>
-                    {item.num}
+                  <span style={{ fontSize: 22, lineHeight: 1, flexShrink: 0, minWidth: 36, color: i % 2 === 0 ? C.dourado : C.rose }}>
+                    ✝
                   </span>
                   <p style={{ color: C.marromMedio, fontSize: 15, lineHeight: 1.7, paddingTop: 4 }}>{item.text}</p>
                 </div>
@@ -235,7 +232,7 @@ export default function Home() {
               <h3 style={{ color: C.dourado, fontFamily: "'Parisienne', cursive", fontSize: 'clamp(1rem, 2vw, 1.3rem)', maxWidth: 500, textAlign: 'left' }}>
                 "A alegria, essa festa do coração possuído por Deus Amor, deve caracterizar a vida de uma Carmelita Mensageira"
               </h3>
-              <a href="https://wa.me/554799380438" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.carmelitasmensageiras.org.br/" target="_blank" rel="noopener noreferrer"
                 style={{ backgroundColor: C.dourado, color: C.marromEscuro, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.15em', textTransform: 'uppercase' as const, whiteSpace: 'nowrap' }}>
                 Quero saber mais
               </a>
