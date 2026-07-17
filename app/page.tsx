@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
 const C = {
@@ -11,6 +11,40 @@ const C = {
   marromEscuro: '#2d1b0e',
   marromMedio: '#5a2904',
   cremeMedio: '#fef9f3',
+}
+
+function Reveal({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        transition: 'opacity 0.8s ease, transform 0.8s ease',
+      }}
+    >
+      {children}
+    </div>
+  )
 }
 
 function PolaroidItem({ src, alt, rot }: { src: string; alt: string; rot: string }) {
@@ -156,6 +190,7 @@ export default function Home() {
         </section>
 
         {/* ══ S2 — Quem Somos ══ */}
+        <Reveal>
         <section id="quem-somos" style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -194,8 +229,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </Reveal>
 
         {/* ══ S3 — O que é preciso ══ */}
+        <Reveal>
         <section style={{ backgroundColor: C.cremeMedio, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1000, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 64 }}>
@@ -239,8 +276,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </Reveal>
 
         {/* ══ S4 — Processo vocacional ══ */}
+        <Reveal>
         <section style={{ backgroundColor: C.marrom, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: 80, maxWidth: 700, margin: '0 auto 80px' }}>
@@ -301,8 +340,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </Reveal>
 
         {/* ══ S5 — Galeria polaroid ══ */}
+        <Reveal>
         <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
@@ -319,8 +360,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </Reveal>
 
         {/* ══ S6 — Frase Santa Teresinha ══ */}
+        <Reveal>
         <section style={{ position: 'relative', minHeight: 420, backgroundColor: C.marromEscuro, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/imagem6.jpeg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.2 }} />
@@ -334,9 +377,32 @@ export default function Home() {
             </p>
           </div>
         </section>
+        </Reveal>
 
-        {/* ══ S7 — Sobre as irmãs + duas caixas ══ */}
-       
+        {/* ══ S7 — Contatos ══ */}
+        <Reveal>
+        <section style={{ backgroundColor: '#d4c5b0', padding: 'clamp(48px, 8vw, 100px) 20px' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center' }}>
+            {[
+              { label: 'Para as Irmãs', href: 'https://wa.me/554799380438' },
+              { label: 'Vocacional Masculino', href: 'https://wa.me/554799380438' },
+              { label: 'Para o Ramo Secular', href: 'https://wa.me/5511947510847' },
+            ].map((item, i) => (
+              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block', padding: '14px 32px', borderRadius: 8,
+                  border: `1px solid ${C.dourado}`,
+                  backgroundColor: i === 0 ? C.marrom : 'transparent',
+                  color: i === 0 ? C.dourado : C.marrom,
+                  fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 13,
+                  letterSpacing: '0.15em', textTransform: 'uppercase' as const, textDecoration: 'none',
+                }}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </section>
+        </Reveal>
 
         {/* FOOTER */}
         <footer style={{ backgroundColor: C.marromEscuro, padding: '48px 24px', textAlign: 'center' }}>
