@@ -165,7 +165,7 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="https://chat.whatsapp.com/C0UAbKQnc7DBcUnKcXkK2R?s=cl&p=a&mlu=4"
+                    href="https://chat.whatsapp.com/GMiWYpZXHOQ9rLAa9g93km?s=cl&p=a&ilr=4&amv=0"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cta-card"
