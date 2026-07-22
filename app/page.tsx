@@ -348,12 +348,11 @@ export default function Home() {
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
               {[
-                { src: '/image1.jpeg', rot: '-4deg', alt: 'Irmãs em oração' },
-                { src: '/imagem2.jpeg', rot: '3deg', alt: 'Adoração' },
-                { src: '/imagem3.jpeg', rot: '-2deg', alt: 'Contemplação' },
-                { src: '/imagem4.jpeg', rot: '4deg', alt: 'Comunidade' },
-                { src: '/imagem5.jpeg', rot: '-3deg', alt: 'Missão' },
-                { src: '/imagem6.jpeg', rot: '2deg', alt: 'Fraternidade' },
+                { src: '/1.jpeg', rot: '-4deg', alt: '' },
+                { src: '/2.jpeg', rot: '3deg', alt: '' },
+                { src: '/3.jpeg', rot: '-2deg', alt: '' },
+                { src: '/4.jpeg', rot: '4deg', alt: '' },
+                
               ].map((foto, i) => (
                 <PolaroidItem key={i} src={foto.src} alt={foto.alt} rot={foto.rot} />
               ))}
