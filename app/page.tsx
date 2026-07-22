@@ -148,7 +148,7 @@ export default function Home() {
               <div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <a
-                    href="https://wa.me/554799380438"
+                    href="https://wa.me/5511961988880"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cta-card"
