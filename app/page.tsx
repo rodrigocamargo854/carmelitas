@@ -47,31 +47,33 @@ function Reveal({ children }: { children: React.ReactNode }) {
   )
 }
 
-function PolaroidItem({ src, alt, rot }: { src: string; alt: string; rot: string }) {
-  const [hovered, setHovered] = useState(false)
+function GalleryItem({ src, alt, onOpen, objectPosition = 'center' }: { src: string; alt: string; onOpen: () => void; objectPosition?: string }) {
+  return (
+    <div onClick={onOpen} style={{ cursor: 'pointer', borderRadius: 10, overflow: 'hidden', boxShadow: '0 4px 16px rgba(74,46,31,0.15)' }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} style={{ width: '100%', height: 220, objectFit: 'cover', objectPosition, display: 'block' }} />
+    </div>
+  )
+}
+
+function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onClick={onClose}
       style={{
-        backgroundColor: 'white',
-        padding: '8px 8px 32px',
-        transform: hovered ? 'scale(1.05) rotate(0deg)' : `rotate(${rot})`,
-        transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-        boxShadow: hovered ? '0 20px 50px rgba(74,46,31,0.35)' : '0 6px 20px rgba(74,46,31,0.18)',
-        cursor: 'pointer',
+        position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.85)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: 20, zIndex: 2000, cursor: 'zoom-out',
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} style={{ width: '100%', height: 180, objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-      <p style={{ textAlign: 'center', marginTop: 10, fontSize: 11, color: '#9a7a65', fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
-        {alt}
-      </p>
+      <img src={src} alt={alt} style={{ maxWidth: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: 8 }} />
     </div>
   )
 }
 
 export default function Home() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const etapas = [
     { num: '01', titulo: 'Primeiros Contatos', desc: 'Primeiros contatos com o Instituto.' },
     { num: '02', titulo: 'Discernimento', desc: 'Tempo de discernimento por parte das Irmãs.' },
@@ -342,24 +344,27 @@ export default function Home() {
         </section>
         </Reveal>
 
-        {/* ══ S5 — Galeria polaroid ══ */}
+        {/* ══ S5 — Galeria ══ */}
         <Reveal>
         <section style={{ backgroundColor: C.creme, padding: 'clamp(48px, 8vw, 100px) 20px' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 40, padding: '10px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 20, padding: '10px' }}>
               {[
-                { src: '/1.jpeg', rot: '-4deg', alt: '' },
-                { src: '/2.jpeg', rot: '3deg', alt: '' },
-                { src: '/3.jpeg', rot: '-2deg', alt: '' },
-                { src: '/4.jpeg', rot: '4deg', alt: '' },
-                
+                { src: '/1.jpeg', alt: 'Foto 1', objectPosition: 'center' },
+                { src: '/2.jpeg', alt: 'Foto 2', objectPosition: 'top' },
+                { src: '/3.jpeg', alt: 'Foto 3', objectPosition: 'center' },
+                { src: '/4.jpeg', alt: 'Foto 4', objectPosition: 'center' },
               ].map((foto, i) => (
-                <PolaroidItem key={i} src={foto.src} alt={foto.alt} rot={foto.rot} />
+                <GalleryItem key={i} src={foto.src} alt={foto.alt} objectPosition={foto.objectPosition} onOpen={() => setLightbox(foto)} />
               ))}
             </div>
           </div>
         </section>
         </Reveal>
+
+        {lightbox && (
+          <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+        )}
 
         {/* ══ S6 — Frase Santa Teresinha ══ */}
         <Reveal>
