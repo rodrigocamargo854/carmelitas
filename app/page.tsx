@@ -74,6 +74,35 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
 
 export default function Home() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+  const [form, setForm] = useState({ nome: '', idade: '', cidade: '', sobre: '' })
+  const [enviado, setEnviado] = useState(false)
+  const [enviando, setEnviando] = useState(false)
+  const formValid = form.nome.trim() !== '' && form.idade.trim() !== '' && form.cidade.trim() !== ''
+
+  function handleFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const whatsappMessage = `Olá! Meu nome é ${form.nome}, tenho ${form.idade} anos e moro em ${form.cidade}.${form.sobre ? ` Sobre mim: ${form.sobre}` : ''}`
+  const contatoHref = `https://wa.me/5511961988880?text=${encodeURIComponent(whatsappMessage)}`
+
+  async function handleEnviar() {
+    if (!formValid || enviando) return
+    setEnviando(true)
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+    } catch {
+      // envio silencioso — não bloqueia o fluxo do WhatsApp
+    } finally {
+      setEnviando(false)
+      setEnviado(true)
+    }
+  }
+
   const etapas = [
     { num: '01', titulo: 'Primeiros Contatos', desc: 'Primeiros contatos com o Instituto.' },
     { num: '02', titulo: 'Discernimento', desc: 'Tempo de discernimento por parte das Irmãs.' },
@@ -84,6 +113,18 @@ export default function Home() {
     { num: '07', titulo: 'Juniorato', desc: 'Com a Profissão dos Votos Temporários, a irmã consagra sua vida a Cristo. Dedica-se à oração e ao apostolado, amadurecendo sua identidade de Carmelita Mensageira. Duração de 5 a 9 anos.' },
     { num: '08', titulo: 'Profissão Perpétua', desc: 'Após longo caminho, a irmã faz sua opção definitiva de consagrar-se a Cristo em uma vida casta, pobre e obediente, segundo o carisma das CMES.' },
   ]
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '12px 16px',
+    borderRadius: 10,
+    border: `1px solid ${C.dourado}55`,
+    backgroundColor: `${C.creme}dd`,
+    color: C.marromEscuro,
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: 14,
+    outline: 'none',
+  }
 
   const ctaCardStyle: React.CSSProperties = {
     flex: 1,
@@ -146,15 +187,76 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Direita — duas caixas CTA */}
+              {/* Direita — formulário + duas caixas CTA */}
               <div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
+                  <input
+                    type="text" name="nome" value={form.nome} onChange={handleFormChange} required
+                    placeholder="Seu nome completo *"
+                    style={inputStyle}
+                  />
+                  <div style={{ display: 'flex', gap: 12 }}>
+                    <input
+                      type="number" name="idade" value={form.idade} onChange={handleFormChange} required min={14} max={80}
+                      placeholder="Idade *"
+                      style={{ ...inputStyle, flex: 1 }}
+                    />
+                    <input
+                      type="text" name="cidade" value={form.cidade} onChange={handleFormChange} required
+                      placeholder="Cidade *"
+                      style={{ ...inputStyle, flex: 2 }}
+                    />
+                  </div>
+                  <textarea
+                    name="sobre" value={form.sobre} onChange={handleFormChange} rows={3}
+                    placeholder="Fale um pouco sobre você (opcional)"
+                    style={{ ...inputStyle, resize: 'none' as const }}
+                  />
+                  {!formValid && (
+                    <p style={{ color: `${C.dourado}bb`, fontSize: 12, fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
+                      Preencha nome, idade e cidade para liberar a entrada no grupo.
+                    </p>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={handleEnviar}
+                    disabled={!formValid || enviando}
+                    style={{
+                      padding: '12px 20px',
+                      borderRadius: 10,
+                      border: 'none',
+                      backgroundColor: enviado ? `${C.dourado}55` : C.dourado,
+                      color: C.marromEscuro,
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      letterSpacing: '0.05em',
+                      cursor: formValid && !enviando ? 'pointer' : 'not-allowed',
+                      opacity: formValid ? 1 : 0.5,
+                    }}
+                  >
+                    {enviando ? 'Enviando...' : enviado ? 'Enviado ✓' : 'Enviar'}
+                  </button>
+                  {enviado && (
+                    <p style={{ color: C.marrom, fontSize: 12, fontFamily: "'Poppins', sans-serif" }}>
+                      Recebemos suas informações. Agora use os botões abaixo pra falar com as irmãs.
+                    </p>
+                  )}
+                </div>
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <a
-                    href="https://wa.me/5511961988880"
+                    href={formValid ? contatoHref : 'https://wa.me/5511961988880'}
                     target="_blank"
                     rel="noopener noreferrer"
+                    
                     className="cta-card"
-                    style={{ ...ctaCardStyle, backgroundColor: '#25D366', boxShadow: '0 8px 24px rgba(37,211,102,0.25)' }}
+                    style={{
+                      ...ctaCardStyle,
+                      backgroundColor: '#25D366',
+                      boxShadow: '0 8px 24px rgba(37,211,102,0.25)',
+                    }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -167,11 +269,21 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="https://chat.whatsapp.com/GMiWYpZXHOQ9rLAa9g93km?s=cl&p=a&ilr=4&amv=0"
+                    href={formValid ? 'https://chat.whatsapp.com/GMiWYpZXHOQ9rLAa9g93km?s=cl&p=a&ilr=4&amv=0' : undefined}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-disabled={!formValid}
+                    onClick={(e) => { if (!formValid) e.preventDefault() }}
                     className="cta-card"
-                    style={{ ...ctaCardStyle, backgroundColor: `${C.dourado}22`, border: `2px solid ${C.dourado}`, boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
+                    style={{
+                      ...ctaCardStyle,
+                      backgroundColor: `${C.dourado}22`,
+                      border: `2px solid ${C.dourado}`,
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+                      opacity: formValid ? 1 : 0.45,
+                      cursor: formValid ? 'pointer' : 'not-allowed',
+                      pointerEvents: formValid ? 'auto' : 'none',
+                    }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <span style={{ fontSize: 32 }}>🕊️</span>

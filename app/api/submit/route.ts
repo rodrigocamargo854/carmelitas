@@ -4,9 +4,9 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
     console.log('body recebido:', body)
 
-  const { nome, idade, cidade, estado, sobre } = body
+  const { nome, idade, cidade, sobre } = body
 
-  if (!nome || !idade || !cidade || !estado || !sobre) {
+  if (!nome || !idade || !cidade) {
     return NextResponse.json({ error: 'Campos obrigatórios faltando.' }, { status: 400 })
   }
 
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
   method: 'POST',
   redirect: 'follow',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ nome, idade, cidade, estado, sobre }),
+  body: JSON.stringify({ nome, idade, cidade, sobre: sobre || '' }),
 })
 
 console.log('Status:', res.status)
