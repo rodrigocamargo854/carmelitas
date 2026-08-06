@@ -77,6 +77,7 @@ export default function Home() {
   const [form, setForm] = useState({ nome: '', idade: '', cidade: '', sobre: '' })
   const [enviado, setEnviado] = useState(false)
   const [enviando, setEnviando] = useState(false)
+  const [showForm, setShowForm] = useState(false)
   const formValid = form.nome.trim() !== '' && form.idade.trim() !== '' && form.cidade.trim() !== ''
 
   function handleFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -128,9 +129,10 @@ export default function Home() {
 
   const ctaCardStyle: React.CSSProperties = {
     flex: 1,
-    minWidth: 220,
+    minWidth: 0,
+    width: '100%',
     borderRadius: 14,
-    padding: '28px 24px',
+    padding: 'clamp(14px, 4vw, 28px) clamp(14px, 4vw, 24px)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -147,6 +149,12 @@ export default function Home() {
         * { box-sizing: border-box; margin: 0; padding: 0; }
         option { background: ${C.marrom}; color: ${C.creme}; }
         .cta-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.35) !important; }
+        @keyframes pulseGlow {
+          0%, 100% { box-shadow: 0 8px 28px rgba(217,172,110,0.55); }
+          50% { box-shadow: 0 8px 40px rgba(217,172,110,0.95); }
+        }
+        .pulse-btn { animation: pulseGlow 1.8s ease-in-out infinite; }
+        .pulse-btn:hover { transform: translateY(-4px) scale(1.02); }
       `}</style>
 
       <main style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: C.creme }}>
@@ -187,70 +195,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Direita — formulário + duas caixas CTA */}
+              {/* Direita — inscrição live + CTA */}
               <div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
-                  <input
-                    type="text" name="nome" value={form.nome} onChange={handleFormChange} required
-                    placeholder="Seu nome completo *"
-                    style={inputStyle}
-                  />
-                  <div style={{ display: 'flex', gap: 12 }}>
-                    <input
-                      type="number" name="idade" value={form.idade} onChange={handleFormChange} required min={14} max={80}
-                      placeholder="Idade *"
-                      style={{ ...inputStyle, flex: 1 }}
-                    />
-                    <input
-                      type="text" name="cidade" value={form.cidade} onChange={handleFormChange} required
-                      placeholder="Cidade *"
-                      style={{ ...inputStyle, flex: 2 }}
-                    />
-                  </div>
-                  <textarea
-                    name="sobre" value={form.sobre} onChange={handleFormChange} rows={3}
-                    placeholder="Fale um pouco sobre você (opcional)"
-                    style={{ ...inputStyle, resize: 'none' as const }}
-                  />
-                  {!formValid && (
-                    <p style={{ color: `${C.dourado}bb`, fontSize: 12, fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
-                      Preencha nome, idade e cidade para liberar a entrada no grupo.
-                    </p>
-                  )}
-
-                  <button
-                    type="button"
-                    onClick={handleEnviar}
-                    disabled={!formValid || enviando}
-                    style={{
-                      padding: '12px 20px',
-                      borderRadius: 10,
-                      border: 'none',
-                      backgroundColor: enviado ? `${C.dourado}55` : C.dourado,
-                      color: C.marromEscuro,
-                      fontFamily: "'Poppins', sans-serif",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      letterSpacing: '0.05em',
-                      cursor: formValid && !enviando ? 'pointer' : 'not-allowed',
-                      opacity: formValid ? 1 : 0.5,
-                    }}
-                  >
-                    {enviando ? 'Enviando...' : enviado ? 'Enviado ✓' : 'Enviar'}
-                  </button>
-                  {enviado && (
-                    <p style={{ color: C.marrom, fontSize: 12, fontFamily: "'Poppins', sans-serif" }}>
-                      Recebemos suas informações. Agora use os botões abaixo pra falar com as irmãs.
-                    </p>
-                  )}
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 20 }}>
                   <a
-                    href={formValid ? contatoHref : 'https://wa.me/5511961988880'}
+                    href={contatoHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    
                     className="cta-card"
                     style={{
                       ...ctaCardStyle,
@@ -260,7 +211,7 @@ export default function Home() {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 36, height: 36 }} />
+                      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style={{ width: 'clamp(28px, 8vw, 36px)', height: 'clamp(28px, 8vw, 36px)' }} />
                       <div style={{ textAlign: 'left' }}>
                         <p style={{ color: 'white', fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Entre em Contato</p>
                         <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)' }}>Fale com as irmãs pelo WhatsApp</p>
@@ -268,32 +219,112 @@ export default function Home() {
                     </div>
                   </a>
 
-                  <a
-                    href={formValid ? 'https://chat.whatsapp.com/GMiWYpZXHOQ9rLAa9g93km?s=cl&p=a&ilr=4&amv=0' : undefined}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-disabled={!formValid}
-                    onClick={(e) => { if (!formValid) e.preventDefault() }}
-                    className="cta-card"
-                    style={{
-                      ...ctaCardStyle,
-                      backgroundColor: `${C.dourado}22`,
-                      border: `2px solid ${C.dourado}`,
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
-                      opacity: formValid ? 1 : 0.45,
-                      cursor: formValid ? 'pointer' : 'not-allowed',
-                      pointerEvents: formValid ? 'auto' : 'none',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                      <span style={{ fontSize: 32 }}>🕊️</span>
-                      <div style={{ textAlign: 'left' }}>
-                        <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Live Vocacional</p>
-                        <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)', opacity: 0.85 }}>Entre no Grupo</p>
+                  {!showForm && (
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(true)}
+                      className="pulse-btn"
+                      style={{
+                        ...ctaCardStyle,
+                        border: 'none',
+                        background: `linear-gradient(135deg, ${C.dourado} 0%, #f0c896 100%)`,
+                        boxShadow: '0 8px 28px rgba(217,172,110,0.55)',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <span style={{ fontSize: 'clamp(24px, 7vw, 32px)' }}>🔥</span>
+                        <div style={{ textAlign: 'left' }}>
+                          <p style={{ color: C.marromEscuro, fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 'clamp(15px, 4vw, 17px)', letterSpacing: '0.03em' }}>Inscrição · Live Vocacional</p>
+                          <p style={{ color: C.marromEscuro, fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)', opacity: 0.8 }}>Clique e garanta sua vaga</p>
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </button>
+                  )}
                 </div>
+
+                {showForm && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
+                    <input
+                      type="text" name="nome" value={form.nome} onChange={handleFormChange} required
+                      placeholder="Seu nome completo *"
+                      style={inputStyle}
+                    />
+                    <div style={{ display: 'flex', gap: 12 }}>
+                      <input
+                        type="number" name="idade" value={form.idade} onChange={handleFormChange} required min={14} max={80}
+                        placeholder="Idade *"
+                        style={{ ...inputStyle, flex: 1 }}
+                      />
+                      <input
+                        type="text" name="cidade" value={form.cidade} onChange={handleFormChange} required
+                        placeholder="Cidade *"
+                        style={{ ...inputStyle, flex: 2 }}
+                      />
+                    </div>
+                    <textarea
+                      name="sobre" value={form.sobre} onChange={handleFormChange} rows={3}
+                      placeholder="Fale um pouco sobre você (opcional)"
+                      style={{ ...inputStyle, resize: 'none' as const }}
+                    />
+                    {!formValid && (
+                      <p style={{ color: `${C.dourado}bb`, fontSize: 12, fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
+                        Preencha nome, idade e cidade para liberar a entrada no grupo.
+                      </p>
+                    )}
+
+                    <button
+                      type="button"
+                      onClick={handleEnviar}
+                      disabled={!formValid || enviando}
+                      style={{
+                        padding: '12px 20px',
+                        borderRadius: 10,
+                        border: 'none',
+                        backgroundColor: enviado ? `${C.dourado}55` : C.dourado,
+                        color: C.marromEscuro,
+                        fontFamily: "'Poppins', sans-serif",
+                        fontWeight: 700,
+                        fontSize: 14,
+                        letterSpacing: '0.05em',
+                        cursor: formValid && !enviando ? 'pointer' : 'not-allowed',
+                        opacity: formValid ? 1 : 0.5,
+                      }}
+                    >
+                      {enviando ? 'Enviando...' : enviado ? 'Enviado ✓' : 'Enviar'}
+                    </button>
+                    {enviado && (
+                      <p style={{ color: C.marrom, fontSize: 12, fontFamily: "'Poppins', sans-serif" }}>
+                        Recebemos suas informações. Agora é só entrar no grupo abaixo.
+                      </p>
+                    )}
+
+                    <a
+                      href={formValid ? 'https://chat.whatsapp.com/GMiWYpZXHOQ9rLAa9g93km?s=cl&p=a&ilr=4&amv=0' : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-disabled={!formValid}
+                      onClick={(e) => { if (!formValid) e.preventDefault() }}
+                      className="cta-card"
+                      style={{
+                        ...ctaCardStyle,
+                        backgroundColor: `${C.dourado}22`,
+                        border: `2px solid ${C.dourado}`,
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+                        opacity: formValid ? 1 : 0.45,
+                        cursor: formValid ? 'pointer' : 'not-allowed',
+                        pointerEvents: formValid ? 'auto' : 'none',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <span style={{ fontSize: 'clamp(24px, 7vw, 32px)' }}>🕊️</span>
+                        <div style={{ textAlign: 'left' }}>
+                          <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Live Vocacional</p>
+                          <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)', opacity: 0.85 }}>Entrar no Grupo</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                )}
 
                 <p style={{ color: `${C.dourado}88`, fontSize: 11, textAlign: 'center', marginTop: 20, fontStyle: 'italic', fontFamily: "'Poppins', sans-serif" }}>
                   Suas informações são confidenciais e serão usadas apenas pelas irmãs.
