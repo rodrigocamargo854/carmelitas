@@ -307,9 +307,9 @@ export default function Home() {
                       className="cta-card"
                       style={{
                         ...ctaCardStyle,
-                        backgroundColor: `${C.dourado}22`,
-                        border: `2px solid ${C.dourado}`,
-                        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+                        backgroundColor: '#2563eb',
+                        border: '2px solid #2563eb',
+                        boxShadow: '0 8px 24px rgba(37,99,235,0.4)',
                         opacity: formValid ? 1 : 0.45,
                         cursor: formValid ? 'pointer' : 'not-allowed',
                         pointerEvents: formValid ? 'auto' : 'none',
@@ -318,8 +318,8 @@ export default function Home() {
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                         <span style={{ fontSize: 'clamp(24px, 7vw, 32px)' }}>🕊️</span>
                         <div style={{ textAlign: 'left' }}>
-                          <p style={{ color: C.dourado, fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Live Vocacional</p>
-                          <p style={{ color: C.creme, fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)', opacity: 0.85 }}>Entrar no Grupo</p>
+                          <p style={{ color: 'white', fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 'clamp(14px, 3.8vw, 16px)', letterSpacing: '0.05em' }}>Live Vocacional</p>
+                          <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(12px, 3.2vw, 13px)' }}>Entrar no Grupo</p>
                         </div>
                       </div>
                     </a>
