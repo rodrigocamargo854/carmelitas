@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { LANGS, translations, type Lang } from './translations'
+import { translations, type Lang } from './translations'
 
 const C = {
   marrom: '#5a2904',
@@ -73,75 +73,9 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
   )
 }
 
-function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
-  const [open, setOpen] = useState(false)
-  const current = LANGS.find((l) => l.code === lang)!
-
-  return (
-    <div style={{ position: 'fixed', top: 16, right: 16, zIndex: 1000, fontFamily: "'Poppins', sans-serif" }}>
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        style={{
-          display: 'flex', alignItems: 'center', gap: 6,
-          backgroundColor: 'rgba(45,27,14,0.85)', border: '1px solid #d9ac6e55',
-          borderRadius: 20, padding: '6px 12px', color: '#ffead0',
-          fontSize: 13, fontWeight: 700, cursor: 'pointer',
-        }}
-      >
-        <span>{current.flag}</span>
-        <span>{current.label}</span>
-      </button>
-      {open && (
-        <div style={{
-          position: 'absolute', top: '110%', right: 0,
-          backgroundColor: '#2d1b0e', border: '1px solid #d9ac6e55',
-          borderRadius: 12, overflow: 'hidden', minWidth: 100,
-          boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-        }}>
-          {LANGS.map((l) => (
-            <button
-              key={l.code}
-              type="button"
-              onClick={() => { setLang(l.code); setOpen(false) }}
-              style={{
-                display: 'flex', alignItems: 'center', gap: 8, width: '100%',
-                padding: '10px 14px', border: 'none',
-                backgroundColor: l.code === lang ? '#5a290455' : 'transparent',
-                color: '#ffead0', fontSize: 13, fontWeight: l.code === lang ? 700 : 400,
-                cursor: 'pointer', textAlign: 'left',
-              }}
-            >
-              <span>{l.flag}</span>
-              <span>{l.label}</span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
-const LANG_MAP: Record<string, Lang> = { pt: 'pt', es: 'es', fr: 'fr', it: 'it' }
-
 export default function Home() {
-  const [lang, setLang] = useState<Lang>('pt')
+  const lang: Lang = 'pt'
   const t = translations[lang]
-
-  useEffect(() => {
-    const saved = window.localStorage.getItem('lang') as Lang | null
-    if (saved && LANG_MAP[saved]) {
-      setLang(saved)
-      return
-    }
-    const browserLang = navigator.language.slice(0, 2).toLowerCase()
-    if (LANG_MAP[browserLang]) setLang(LANG_MAP[browserLang])
-  }, [])
-
-  function changeLang(l: Lang) {
-    setLang(l)
-    window.localStorage.setItem('lang', l)
-  }
 
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const [form, setForm] = useState({ nome: '', idade: '', cidade: '', sobre: '' })
@@ -218,8 +152,6 @@ export default function Home() {
         .pulse-btn { animation: pulseGlow 1.8s ease-in-out infinite; }
         .pulse-btn:hover { transform: translateY(-4px) scale(1.02); }
       `}</style>
-
-      <LangSwitcher lang={lang} setLang={changeLang} />
 
       <main style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: C.creme }}>
 
